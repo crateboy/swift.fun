@@ -11,10 +11,33 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var additionSwitch: UISwitch!
     
     var buttonCount = 0
     @IBAction func buttonTapped(_ sender: Any) {
         
+        let addition = additionSwitch.isOn
+        
+        if addition {
+            let sum = Double(topTextField.text!)! + Double(bottomTextField.text!)!
+            
+            myLabel.text = "\(topTextField.text!) + \(bottomTextField.text!) = \(sum)"
+            
+        } else {
+            
+            let sum = Double(topTextField.text!)! - Double(bottomTextField.text!)!
+            
+            myLabel.text = "\(topTextField.text!) - \(bottomTextField.text!) = \(sum)"
+            
+        }
+        
+
+        
+
+        
+        /*
         buttonCount = buttonCount + 1
         
         print(buttonCount)
@@ -31,8 +54,9 @@ class ViewController: UIViewController {
             view.backgroundColor = UIColor.green
             
             myLabel.text = "You hit it 10 times!"
+ 
         }
-
+        */
         
     }
     
